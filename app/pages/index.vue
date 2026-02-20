@@ -20,9 +20,9 @@ onMounted(() => {
     } else {
         // Dummy Initial Data
         reminders.value = [
-            { id: 1, title: 'IM3 Pasca Bayar', category: 'Provider', expiryDate: '2026-03-15', type: 'sim', iconBgColor: 'bg-orange-500' },
-            { id: 2, title: 'Spotify Family', category: 'Music', expiryDate: '2026-02-28', type: 'music', iconBgColor: 'bg-green-500' },
-            { id: 3, title: 'PLN Token', category: 'Electricity', expiryDate: '2026-02-22', type: 'electricity', iconBgColor: 'bg-yellow-500' }
+            { id: 1, title: 'IM3 Pasca Bayar', category: 'Provider', expiryDate: '2026-03-15', type: 'sim', iconBgColor: 'bg-zinc-100' },
+            { id: 2, title: 'Spotify Family', category: 'Music', expiryDate: '2026-02-28', type: 'music', iconBgColor: 'bg-zinc-500' },
+            { id: 3, title: 'PLN Token', category: 'Electricity', expiryDate: '2026-02-22', type: 'electricity', iconBgColor: 'bg-zinc-300' }
         ];
         saveToStorage();
     }
@@ -128,26 +128,26 @@ function formatDate(dateStr: string) {
 </script>
 
 <template>
-    <div class="h-screen bg-gray-50 flex flex-col w-full overflow-hidden font-sans">
+    <div class="h-full bg-gray-50 flex flex-col w-full overflow-hidden font-sans relative">
         <!-- Fixed Header with Glassmorphism -->
         <header
-            class="sticky top-0 z-50 px-6 py-4 flex justify-between items-center bg-white/80 backdrop-blur-xl border-b border-gray-100/50 shrink-0">
-            <div class="flex flex-col">
+            class="sticky top-0 z-50 px-6 safe-top flex justify-between items-center bg-white/80 backdrop-blur-xl border-b border-gray-100/10 shrink-0">
+            <div class="flex flex-col py-4">
                 <span class="text-indigo-600 text-[10px] font-black uppercase tracking-[0.3em] mb-1">My Space</span>
                 <h1 class="text-xl font-black text-gray-900 leading-none flex items-center gap-2">
                     Reminders
                     <span
-                        class="bg-gradient-to-r from-indigo-600 to-violet-600 text-white text-[9px] px-2 py-0.5 rounded-full font-black shadow-lg shadow-indigo-200">PRO</span>
+                        class="bg-zinc-900 text-white text-[9px] px-2 py-0.5 rounded-full font-black shadow-sm">PRO</span>
                 </h1>
             </div>
             <div class="flex items-center gap-3">
                 <button @click="requestPermission" :class="[
-                    'w-11 h-11 rounded-2xl flex items-center justify-center transition-all bg-white/50 backdrop-blur-md border border-white shadow-sm active:scale-90 relative group/btn',
-                    permission === 'granted' ? 'text-green-500' : 'text-gray-400 hover:text-indigo-600 hover:border-indigo-100 hover:bg-indigo-50/50'
+                    'w-11 h-11 rounded-2xl flex items-center justify-center transition-all bg-white border border-gray-100 shadow-sm active:scale-90 relative group/btn',
+                    permission === 'granted' ? 'text-zinc-900' : 'text-gray-400 hover:text-zinc-900 hover:border-gray-200'
                 ]" title="Enable Notifications">
                     <!-- Subtle Glow when not granted -->
                     <div v-if="permission === 'default'"
-                        class="absolute inset-0 bg-red-400/10 rounded-2xl animate-pulse"></div>
+                        class="absolute inset-0 bg-zinc-900/5 rounded-2xl animate-pulse"></div>
 
                     <svg xmlns="http://www.w3.org/2000/svg"
                         class="h-5 w-5 relative z-10 group-hover/btn:rotate-12 transition-transform" fill="none"
@@ -156,33 +156,14 @@ function formatDate(dateStr: string) {
                             d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
                     </svg>
                     <div v-if="permission === 'default'"
-                        class="absolute top-2.5 right-2.5 w-2 h-2 bg-red-500 rounded-full border-2 border-white z-20">
+                        class="absolute top-2.5 right-2.5 w-2 h-2 bg-zinc-900 rounded-full border-2 border-white z-20">
                     </div>
                 </button>
-                <div class="relative group/avatar cursor-pointer">
-                    <!-- Outer Decorative Ring -->
-                    <div
-                        class="absolute -inset-1 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 rounded-[22px] opacity-20 blur-sm group-hover:opacity-40 transition-opacity">
-                    </div>
-
-                    <div
-                        class="relative w-11 h-11 rounded-[20px] bg-gradient-to-tr from-indigo-100 to-purple-100 p-[2px] shadow-lg shadow-indigo-100/50 transition-transform group-hover:scale-105 duration-500">
-                        <div class="w-full h-full bg-white rounded-[18px] p-0.5 overflow-hidden">
-                            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="Profile"
-                                class="w-full h-full object-cover rounded-[16px]" />
-                        </div>
-                    </div>
-                    <!-- Online Status Pulse -->
-                    <div
-                        class="absolute -bottom-0.5 -right-0.5 w-4 h-4 bg-green-500 border-[3px] border-white rounded-full shadow-sm z-10">
-                        <div class="absolute inset-0 bg-green-500 rounded-full animate-ping opacity-25"></div>
-                    </div>
-                </div>
             </div>
         </header>
 
         <!-- Scrollable Content Area -->
-        <main class="flex-1 overflow-y-auto px-6 pt-6 pb-32">
+        <main class="flex-1 overflow-y-auto px-6 pt-6 pb-40 no-scrollbar">
             <!-- Empty State -->
             <div v-if="reminders.length === 0" class="flex flex-col items-center justify-center py-20 text-center">
                 <div class="w-24 h-24 bg-indigo-50 rounded-full flex items-center justify-center mb-4 text-indigo-300">
@@ -273,10 +254,10 @@ function formatDate(dateStr: string) {
 
         <!-- Floating Action Button -->
         <button @click="openAddForm"
-            class="fixed bottom-8 right-1/2 translate-x-1/2 sm:translate-x-0 sm:right-8 w-16 h-16 bg-gradient-to-tr from-gray-900 via-gray-800 to-gray-900 rounded-[24px] shadow-[0_20px_40px_rgba(0,0,0,0.3)] flex items-center justify-center text-white ring-4 ring-white hover:rotate-90 hover:rounded-full active:scale-90 transition-all duration-500 z-50 pointer-events-auto group">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 transition-transform group-hover:scale-110"
+            class="fixed bottom-28 right-8 w-14 h-14 bg-gray-900 rounded-2xl shadow-2xl flex items-center justify-center text-white ring-4 ring-white active:scale-90 transition-all duration-300 z-50 group">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 transition-transform group-hover:rotate-90"
                 fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4" />
             </svg>
         </button>
 

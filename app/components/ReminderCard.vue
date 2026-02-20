@@ -8,9 +8,9 @@ const props = defineProps<{
 }>();
 
 const urgencyClass = computed(() => {
-    if (props.daysLeft <= 3) return 'bg-red-100 text-red-700 border-red-200';
-    if (props.daysLeft <= 7) return 'bg-orange-100 text-orange-700 border-orange-200';
-    return 'bg-green-100 text-green-700 border-green-200';
+    if (props.daysLeft <= 3) return 'bg-zinc-900 text-white border-zinc-900';
+    if (props.daysLeft <= 7) return 'bg-zinc-100 text-zinc-900 border-zinc-200';
+    return 'bg-white text-zinc-400 border-zinc-100';
 });
 
 const progressWidth = computed(() => {
@@ -20,9 +20,9 @@ const progressWidth = computed(() => {
 });
 
 const barColor = computed(() => {
-    if (props.daysLeft <= 3) return 'bg-red-500';
-    if (props.daysLeft <= 7) return 'bg-orange-500';
-    return 'bg-green-500';
+    if (props.daysLeft <= 3) return 'bg-zinc-900';
+    if (props.daysLeft <= 7) return 'bg-zinc-500';
+    return 'bg-zinc-300';
 });
 </script>
 
@@ -31,7 +31,7 @@ const barColor = computed(() => {
         class="bg-white rounded-[24px] p-5 flex items-center gap-5 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100/50 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 group">
         <!-- Icon Container -->
         <div
-            :class="[iconBgColor, 'w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 shadow-lg shadow-gray-200/50 group-hover:scale-110 transition-transform duration-500']">
+            :class="[iconBgColor, 'w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform duration-500']">
             <slot name="icon" />
         </div>
 
@@ -44,11 +44,11 @@ const barColor = computed(() => {
                 </span>
             </div>
             <p class="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-3">{{ category }} • {{ expiryDate
-                }}</p>
+            }}</p>
 
             <!-- Progress Bar -->
-            <div class="h-1.5 bg-gray-50 rounded-full w-full overflow-hidden border border-gray-100/50 shadow-inner">
-                <div :class="[barColor, 'h-full rounded-full transition-all duration-1000 ease-out shadow-sm']"
+            <div class="h-1 bg-gray-100 rounded-full w-full">
+                <div :class="[barColor, 'h-full rounded-full transition-all duration-1000 ease-out']"
                     :style="{ width: progressWidth }"></div>
             </div>
         </div>

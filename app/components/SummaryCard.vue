@@ -7,15 +7,15 @@ defineProps<{
 
 <template>
     <div
-        class="bg-gradient-to-br from-indigo-600 via-indigo-700 to-violet-800 rounded-3xl p-6 text-white shadow-[0_20px_40px_rgba(79,70,229,0.2)] mb-8 border border-white/10 relative overflow-hidden group">
-        <!-- Sublte Glow Effect -->
+        class="bg-zinc-900 rounded-[32px] p-6 text-white shadow-[0_20px_50px_rgba(0,0,0,0.15)] mb-8 border border-white/5 relative overflow-hidden group">
+        <!-- Subtle Glow Effect -->
         <div
-            class="absolute -top-24 -right-24 w-48 h-48 bg-white/10 rounded-full blur-3xl group-hover:bg-white/20 transition-colors duration-700">
+            class="absolute -top-24 -right-24 w-48 h-48 bg-white/5 rounded-full blur-3xl group-hover:bg-white/10 transition-colors duration-1000">
         </div>
 
         <div class="flex justify-between items-start mb-6 relative z-10">
             <div>
-                <h2 class="text-indigo-100/80 text-[10px] font-black uppercase tracking-[0.2em] mb-1.5">System Status
+                <h2 class="text-zinc-500 text-[10px] font-black uppercase tracking-[0.2em] mb-1.5">System Status
                 </h2>
                 <p class="text-xl font-black leading-tight">Overview of your<br />active reminders</p>
             </div>
@@ -29,13 +29,13 @@ defineProps<{
         </div>
 
         <div class="flex gap-3 relative z-10">
-            <div class="bg-white/10 flex-1 rounded-2xl p-4 backdrop-blur-md border border-white/5 shadow-sm">
-                <div class="text-indigo-200/70 text-[10px] font-bold uppercase tracking-wider mb-1">Total</div>
-                <div class="text-2xl font-black tracking-tight">{{ totalReminders }}</div>
+            <div class="bg-white/5 flex-1 rounded-2xl p-4 border border-white/5 shadow-sm">
+                <div class="text-zinc-500 text-[10px] font-bold uppercase tracking-wider mb-1">Total</div>
+                <div class="text-2xl font-black tracking-tight text-white">{{ totalReminders }}</div>
             </div>
-            <div class="bg-red-500/10 flex-1 rounded-2xl p-4 backdrop-blur-md border border-red-400/20 shadow-sm">
-                <div class="text-red-200/70 text-[10px] font-bold uppercase tracking-wider mb-1">Urgent</div>
-                <div class="text-2xl font-black tracking-tight text-red-100">{{ urgentReminders }}</div>
+            <div class="bg-white/5 flex-1 rounded-2xl p-4 border border-white/5 shadow-sm">
+                <div class="text-zinc-500 text-[10px] font-bold uppercase tracking-wider mb-1">Urgent</div>
+                <div class="text-2xl font-black tracking-tight text-white">{{ urgentReminders }}</div>
             </div>
         </div>
     </div>

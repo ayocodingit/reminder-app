@@ -15,11 +15,11 @@ const form = ref({
 });
 
 const categories = [
-    { label: 'Provider', value: 'Provider', type: 'sim', color: 'bg-yellow-500' },
-    { label: 'Subscription', value: 'Subscription', type: 'tv', color: 'bg-red-600' },
-    { label: 'Internet', value: 'Internet', type: 'wifi', color: 'bg-indigo-500' },
-    { label: 'Utilities', value: 'Utilities', type: 'bolt', color: 'bg-emerald-500' },
-    { label: 'Music', value: 'Music', type: 'music', color: 'bg-pink-500' },
+    { label: 'Provider', value: 'Provider', type: 'sim', color: 'bg-zinc-100' },
+    { label: 'Subscription', value: 'Subscription', type: 'tv', color: 'bg-zinc-200' },
+    { label: 'Internet', value: 'Internet', type: 'wifi', color: 'bg-zinc-300' },
+    { label: 'Utilities', value: 'Utilities', type: 'bolt', color: 'bg-zinc-400' },
+    { label: 'Music', value: 'Music', type: 'music', color: 'bg-zinc-500' },
 ];
 
 watch(() => props.editData, (newVal) => {
@@ -36,7 +36,7 @@ function resetForm() {
         category: 'Provider',
         expiryDate: '',
         type: 'sim',
-        iconBgColor: 'bg-yellow-500'
+        iconBgColor: 'bg-zinc-100'
     };
 }
 
@@ -111,7 +111,7 @@ function submit() {
 
                         <div class="pt-6">
                             <button type="submit"
-                                class="w-full h-14 bg-gray-900 text-white rounded-2xl font-black text-[13px] uppercase tracking-[0.2em] hover:bg-indigo-600 active:scale-95 transition-all shadow-[0_20px_40px_rgba(0,0,0,0.15)]">
+                                class="w-full h-14 bg-zinc-900 text-white rounded-2xl font-black text-[13px] uppercase tracking-[0.2em] hover:bg-zinc-800 active:scale-95 transition-all shadow-[0_20px_40px_rgba(0,0,0,0.1)]">
                                 {{ editData ? 'Update Reminder' : 'Create Reminder' }}
                             </button>
                         </div>
